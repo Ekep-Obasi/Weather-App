@@ -1,2 +1,2 @@
 # Weather-App-Frontend
-A sample weather app with in react JS
+A sample weather app built with React Js
