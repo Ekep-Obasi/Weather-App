@@ -6,4 +6,4 @@ It's a sample weather app built using [ReactJs](https://reactjs.org/) with weath
 
 ## `npm run start`
 
-Start the
+Start the project 
