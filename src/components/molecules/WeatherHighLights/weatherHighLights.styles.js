@@ -27,6 +27,7 @@ const HighLightsWrapper = styled.div`
   width: 100%;
   height: 100%;
   flex-direction: column;
+  gap: 22px;
   padding: 22px;
   align-items: center;
   justify-content: space-between;

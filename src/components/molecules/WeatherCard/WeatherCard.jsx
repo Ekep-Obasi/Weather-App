@@ -19,8 +19,8 @@ const WeatherCard = () => {
 const WeatherCards = () => {
   return (
     <CardWrapper>
-      {new Array(5).fill("").map((el) => (
-        <WeatherCard />
+      {new Array(5).fill("").map((el, i) => (
+        <WeatherCard key={i} />
       ))}
     </CardWrapper>
   );

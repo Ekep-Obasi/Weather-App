@@ -8,10 +8,16 @@ const SidebarWrapper = styled.div`
   gap: 7px;
   background-color: ${(props) => props.theme.colors.darkBgSecondary};
   height: 100vh;
-  width: 460px;
+  width: 25%;
   overflow: hidden;
   font-family: "Raleway";
   padding: 40px;
+
+  @media screen and (max-width: 1285px) {
+    width: 100%;
+    height: fit-content;
+    padding: 40px 15px;
+  }
 
   .image_wrapper {
     position: relative;
@@ -117,4 +123,89 @@ const SidebarWrapper = styled.div`
   }
 `;
 
-export { SidebarWrapper };
+const StyledOpenDrawer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  background-color: ${(props) => props.theme.colors.darkBgSecondary};
+  height: 100vh;
+  width: 370px;
+  padding: 35px 42px;
+  position: absolute;
+  font-family: Raleway;
+  z-index: 2;
+  transition: 0.45s left linear;
+  left: ${({ state }) => (state ? `0px` : `-1200px`)};
+
+  @media screen and (max-width: 1285px) {
+    width: 100vw;
+    height: 100%;
+  }
+
+  .close-button {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      background: none;
+      border-style: none;
+      font-size: 32px;
+      padding: 1rem;
+      color: #e7e7eb;
+      cursor: pointer;
+    }
+  }
+
+  .search-area {
+    width: 100%;
+    gap: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    input {
+      border: none;
+      width: 95%;
+      height: 48px;
+      padding: 0 0.75rem;
+      font-size: 16px;
+      color: #e7e7eb;
+      background-color: #1e213a;
+      border: 1px solid #616475;
+
+      &::placeholder {
+        color: #e7e7eb;
+      }
+
+      &:focus {
+        outline: 1px solid #e7e7eb;
+      }
+    }
+
+    button {
+      width: 86px;
+      height: 48px;
+      background-color: #3c47e9;
+      color: #e7e7eb;
+      border-style: none;
+    }
+  }
+
+  #select {
+    width: 100%;
+    border: 1px solid #616475;
+    padding: 0.5rem;
+    font-size: 16px;
+    background-color: #1e213a;
+    height: 64px;
+    color: #e7e7eb;
+
+    .options {
+      padding: 0.5rem;
+    }
+  }
+`;
+
+export { SidebarWrapper, StyledOpenDrawer };

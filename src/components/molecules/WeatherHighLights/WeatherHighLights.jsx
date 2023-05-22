@@ -17,19 +17,23 @@ const highLights = [
   {
     title: "Wind Status",
     value: "7mph",
+    reder: () => <p>Holla</p>,
   },
   {
     title: "Humidity",
     value: "84%",
+    reder: () => "",
   },
 
   {
     title: "visibility",
     value: "6,4 miles",
+    reder: () => "",
   },
   {
     title: "Air Pressure",
     value: "998 mb",
+    reder: () => "",
   },
 ];
 
@@ -37,8 +41,8 @@ const WeatherHighLights = () => {
   return (
     <HighLightsWrapper>
       <h2>Today's Highlights</h2>
-      {highLights.map(({ title, value }) => (
-        <HighLightCard title={title} data={value} />
+      {highLights.map(({ title, value }, i) => (
+        <HighLightCard key={i} title={title} data={value} />
       ))}
     </HighLightsWrapper>
   );

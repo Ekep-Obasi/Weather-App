@@ -2,18 +2,28 @@ import styled from "styled-components";
 
 const HomeWrapper = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: ${(props) => props.theme.colors.darkBgPrimary};
+  position: relative;
+
+  @media screen and (max-width: 1285px) {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 `;
 
 const HomeContent = styled.div`
-  width: 100%;
+  width: 85%;
   height: 100vh;
   padding: 75px;
   display: flex;
+
+  @media screen and (max-width: 1285px) {
+    flex-direction: column;
+  }
 
   .container1 {
     display: flex;
@@ -21,12 +31,16 @@ const HomeContent = styled.div`
     padding: 22px;
     gap: 22px;
 
+    @media screen and (max-width: 1285px) {
+      width: 100%;
+    }
+
     .graph {
       flex: 2;
       width: 100%;
       height: 100%;
+      min-height: 320px;
       display: flex;
-      border: 1px solid black;
       background-color: #1e213a;
     }
   }
