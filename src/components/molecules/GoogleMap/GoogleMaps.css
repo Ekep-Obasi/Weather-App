@@ -26,6 +26,7 @@
 .button {
   width: 86px;
   height: 48px;
+  margin-right: 320px;
   background-color: #3c47e9;
   color: #e7e7eb;
   border-style: none;

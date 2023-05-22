@@ -8,15 +8,16 @@ import { SideBarContext, SideBarProvider } from "./sidebarcontext";
 import { AppContext } from "../../../context/app";
 import convertTemperature from "../../../utlils/convertTemp";
 import GoogleMapWrapper from "../../molecules/GoogleMap/GoogleMap";
+import Search from "../../molecules/autoCompleteSearch/Search";
 
 const ClosedDrawer = () => {
   const { isOpen, setIsOpen } = useContext(SideBarContext);
-  const { dailyWeather } = useContext(AppContext);
+  const { dailyWeather, setSelected } = useContext(AppContext);
 
   return (
     <SidebarWrapper state={isOpen}>
       <div className="header">
-        <input type="search" placeholder="search for places" />
+        <Search setSelected={setSelected} />
         <button onClick={() => setIsOpen((prev) => !prev)}>
           <MdOutlineMyLocation />
         </button>

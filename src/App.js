@@ -7,6 +7,7 @@ import { getCurrentWeather } from "./services/data.repo";
 
 function App() {
   const [dailyWeather, setDailyWeather] = useState();
+  const [selected, setSelected] = useState(null);
 
   useEffect(() => {
     getLocation()
@@ -15,7 +16,7 @@ function App() {
   }, []);
 
   return (
-    <AppProvider value={{ dailyWeather }}>
+    <AppProvider value={{ dailyWeather, selected, setSelected }}>
       <Theme>
         <Home />
       </Theme>
