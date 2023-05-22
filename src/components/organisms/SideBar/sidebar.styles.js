@@ -1,0 +1,120 @@
+import styled from "styled-components";
+
+const SidebarWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 7px;
+  background-color: ${(props) => props.theme.colors.darkBgSecondary};
+  height: 100vh;
+  width: 460px;
+  overflow: hidden;
+  font-family: "Raleway";
+  padding: 40px;
+
+  .image_wrapper {
+    position: relative;
+
+    .overlay {
+      top: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(30, 33, 58, 0.95);
+    }
+
+    img.main__image {
+      z-index: 1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 144px;
+    line-height: 169px;
+    color: ${(props) => props.theme.colors.lightTxtPrimary};
+    padding: 5px 0;
+
+    span {
+      font-size: 62px;
+      color: ${(props) => props.theme.colors.lightTxtSecondary};
+    }
+  }
+
+  .info {
+    color: ${(props) => props.theme.colors.lightTxtSecondary};
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+  }
+
+  .date {
+    width: 175px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: ${(props) => props.theme.colors.lightTxtSecondary};
+    font-family: Raleway;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+
+  .location {
+    font-size: 18px;
+    color: ${(props) => props.theme.colors.lightTxtSecondary};
+  }
+
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px;
+
+    button {
+      cursor: pointer;
+      font-size: 22px;
+      color: #e7e7eb;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-style: none;
+      background-color: #6e707a;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    input {
+      background-color: #6e707a;
+      height: 40px;
+      border-style: none;
+      padding: 0 0.5rem;
+      font-size: 16px;
+      color: #e7e7eb;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+      &::placeholder {
+        color: #e7e7eb;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+`;
+
+export { SidebarWrapper };
