@@ -13,8 +13,9 @@ function getCurrentWeather(prams) {
     .then(formatCurrentWeather);
 }
 
-function formatCurrentWeather({ weather, main, visiblity, name, wind }) {
+function formatCurrentWeather({ weather, main, visiblity, name, wind, coord }) {
   return {
+    ...coord,
     name,
     weather: weather[0],
     temp: main.temp,

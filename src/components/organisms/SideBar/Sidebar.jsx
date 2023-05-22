@@ -7,6 +7,7 @@ import { SidebarWrapper, StyledOpenDrawer } from "./sidebar.styles";
 import { SideBarContext, SideBarProvider } from "./sidebarcontext";
 import { AppContext } from "../../../context/app";
 import convertTemperature from "../../../utlils/convertTemp";
+import GoogleMapWrapper from "../../molecules/GoogleMap/GoogleMap";
 
 const ClosedDrawer = () => {
   const { isOpen, setIsOpen } = useContext(SideBarContext);
@@ -55,18 +56,11 @@ const OpenDrawer = () => {
   return (
     <StyledOpenDrawer state={isOpen}>
       <div className="close-button">
-        <button onClick={() => setIsOpen((prev) => !prev)}>&times;</button>
+        <button className="close" onClick={() => setIsOpen((prev) => !prev)}>
+          &times;
+        </button>
       </div>
-      <form className="search-area">
-        <input type="text" placeholder="search Location" />
-        <button>Search</button>
-      </form>
-      <select id="select">
-        <option className="option">Volvo</option>
-        <option className="option">Saab</option>
-        <option className="option">Mercedes</option>
-        <option className="option">Audi</option>
-      </select>
+      <GoogleMapWrapper />
     </StyledOpenDrawer>
   );
 };

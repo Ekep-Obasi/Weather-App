@@ -148,62 +148,11 @@ const StyledOpenDrawer = styled.div`
     display: flex;
     justify-content: flex-end;
 
-    button {
-      background: none;
-      border-style: none;
+    button.close {
       font-size: 32px;
-      padding: 1rem;
-      color: #e7e7eb;
-      cursor: pointer;
-    }
-  }
-
-  .search-area {
-    width: 100%;
-    gap: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    input {
-      border: none;
-      width: 95%;
-      height: 48px;
-      padding: 0 0.75rem;
-      font-size: 16px;
-      color: #e7e7eb;
-      background-color: #1e213a;
-      border: 1px solid #616475;
-
-      &::placeholder {
-        color: #e7e7eb;
-      }
-
-      &:focus {
-        outline: 1px solid #e7e7eb;
-      }
-    }
-
-    button {
-      width: 86px;
-      height: 48px;
-      background-color: #3c47e9;
+      background-color: transparent;
       color: #e7e7eb;
       border-style: none;
-    }
-  }
-
-  #select {
-    width: 100%;
-    border: 1px solid #616475;
-    padding: 0.5rem;
-    font-size: 16px;
-    background-color: #1e213a;
-    height: 64px;
-    color: #e7e7eb;
-
-    .options {
-      padding: 0.5rem;
     }
   }
 `;
