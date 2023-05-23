@@ -14,7 +14,6 @@ import "@reach/combobox/styles.css";
 
 const Search = ({ setSelected, button }) => {
   const {
-    ready,
     value,
     setValue,
     suggestions: { status, data },
@@ -36,7 +35,6 @@ const Search = ({ setSelected, button }) => {
         placeholder="search Location"
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        disabled={!ready}
         className="combobox-input"
       />
       {button && <ComboboxButton value="Search" className="button" />}

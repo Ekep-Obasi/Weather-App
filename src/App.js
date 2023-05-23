@@ -10,6 +10,7 @@ function App() {
   const [dailyWeather, setDailyWeather] = useState({ name: "" });
   const [location, setLocation] = useState({ lat: "", lon: "" });
   const [foreCast, setForeCast] = useState([]);
+  const [mapData, setMapData] = useState([]);
 
   useEffect(() => {
     getLocation().then((res) => setLocation(res));
@@ -18,14 +19,22 @@ function App() {
     getCurrentWeather({ lat: location?.lat, lon: location?.lng }).then((res) =>
       setDailyWeather(res)
     );
-    getForeCast({ lat: location?.lat, lon: location?.lng }).then((res) =>
-      setForeCast(res[1])
-    );
+    getForeCast({ lat: location?.lat, lon: location?.lng }).then((res) => {
+      setMapData(res[0]);
+      setForeCast(res[1]);
+    });
   }, [location.lat, location.lon, dailyWeather.name]);
 
   return (
     <AppProvider
-      value={{ dailyWeather, location, setLocation, foreCast, setForeCast }}
+      value={{
+        dailyWeather,
+        location,
+        setLocation,
+        foreCast,
+        setForeCast,
+        mapData,
+      }}
     >
       <Theme>
         <Home />

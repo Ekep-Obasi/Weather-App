@@ -8,8 +8,6 @@ import { AppContext } from "../../../context/app";
 import convertTemperature from "../../../utlils/convertTemp";
 import GoogleMapWrapper from "../../molecules/GoogleMap/GoogleMap";
 import Search from "../../molecules/autoCompleteSearch/Search";
-import { getDate, getTime } from "../../../utlils/date";
-import { Data } from "@react-google-maps/api";
 
 const ClosedDrawer = () => {
   const { isOpen, setIsOpen } = useContext(SideBarContext);

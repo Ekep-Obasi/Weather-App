@@ -8,7 +8,8 @@ function getForeCast(params) {
     .then((res) => res.data)
     .then((res) => res.list.map(formatWeatherForeCastList))
     .then((res) => groupByDay(res))
-    .then((res) => formatForcast(res));
+    .then((res) => formatForcast(res))
+    .then((res) => formatMapData(res));
 }
 
 function formatWeatherForeCastList({
@@ -34,7 +35,7 @@ function formatWeatherForeCastList({
 }
 
 function formatForcast(forecast) {
-  const avgWeather = Object.values(forecast).map((day) => {
+  const WeatherAtInstant = Object.values(forecast).map((day) => {
     const arr = [];
     day.forEach((weather) => {
       if (Date.parse(weather.fullTime) >= Date.parse(localTime()))
@@ -42,7 +43,26 @@ function formatForcast(forecast) {
     });
     return arr.pop();
   });
-  return [forecast, avgWeather];
+  return [forecast, WeatherAtInstant];
+}
+
+function formatMapData([forcast]) {
+  const map = [];
+  Object.keys(forcast).forEach((key) => {
+    const { windSpeed, humidity, airPressure, visibility } = forcast[key];
+    const data = [
+      { x: "windSpeed", y: windSpeed },
+      { x: "humidity", y: humidity },
+      { x: "airPressure", y: airPressure },
+      { x: "visibility", y: visibility },
+    ];
+    map.push({
+      id: key,
+      color: "",
+      data: data,
+    });
+  });
+  console.log(map);
 }
 
 function groupByDay(forcast) {
