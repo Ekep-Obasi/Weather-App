@@ -2,22 +2,23 @@ import React, { useContext, useState } from "react";
 import image from "../../../assets/images/Cloud-background.png";
 import shower from "../../../assets/images/Shower.png";
 import { MdLocationPin, MdOutlineMyLocation } from "react-icons/md";
-import { getCurrentDate } from "../../../utlils/date";
 import { SidebarWrapper, StyledOpenDrawer } from "./sidebar.styles";
 import { SideBarContext, SideBarProvider } from "./sidebarcontext";
 import { AppContext } from "../../../context/app";
 import convertTemperature from "../../../utlils/convertTemp";
 import GoogleMapWrapper from "../../molecules/GoogleMap/GoogleMap";
 import Search from "../../molecules/autoCompleteSearch/Search";
+import { getDate, getTime } from "../../../utlils/date";
+import { Data } from "@react-google-maps/api";
 
 const ClosedDrawer = () => {
   const { isOpen, setIsOpen } = useContext(SideBarContext);
-  const { dailyWeather, setSelected } = useContext(AppContext);
+  const { dailyWeather, setLocation } = useContext(AppContext);
 
   return (
     <SidebarWrapper state={isOpen}>
       <div className="header">
-        <Search setSelected={setSelected} />
+        <Search setSelected={setLocation} />
         <button onClick={() => setIsOpen((prev) => !prev)}>
           <MdOutlineMyLocation />
         </button>
@@ -30,7 +31,7 @@ const ClosedDrawer = () => {
       </div>
 
       <p>
-        {convertTemperature("fahrenheit", dailyWeather?.temp)}
+        {convertTemperature("fahrenheit", dailyWeather?.temp) || ""}
         <span>&deg;C</span>
       </p>
       <p className="info">{dailyWeather?.weather?.main}</p>
@@ -38,7 +39,11 @@ const ClosedDrawer = () => {
       <div className="date">
         <span>Today</span>
         <span> &#183;</span>
-        <span>{getCurrentDate()}</span>
+        <span>
+          {new Intl.DateTimeFormat("default", { dateStyle: "medium" }).format(
+            new Date()
+          )}
+        </span>
       </div>
 
       <div className="location">

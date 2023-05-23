@@ -6,7 +6,7 @@ const getLocation = () => {
   return promise.then((pos) => {
     return {
       lat: pos.coords.latitude,
-      lon: pos.coords.longitude,
+      lng: pos.coords.longitude,
     };
   });
 };

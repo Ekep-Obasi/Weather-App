@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const httpClient = axios.create({
-  baseURL: "https://api.openweathermap.org/data/2.5/",
+  baseURL: process.env.REACT_APP_API_BASE_URL,
 });
 
 export default httpClient;

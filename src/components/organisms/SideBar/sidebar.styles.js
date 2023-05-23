@@ -66,6 +66,7 @@ const SidebarWrapper = styled.div`
     width: 175px;
     display: flex;
     justify-content: space-between;
+    vertical-align: center;
     align-items: center;
     color: ${(props) => props.theme.colors.lightTxtSecondary};
     font-family: Raleway;

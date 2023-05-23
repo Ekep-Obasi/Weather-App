@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.2",
+    "@nivo/line": "^0.83.0",
     "@reach/combobox": "^0.18.0",
     "@react-google-maps/api": "^2.18.1",
     "@reduxjs/toolkit": "^1.9.5",

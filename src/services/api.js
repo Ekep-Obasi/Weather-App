@@ -3,8 +3,7 @@ import httpClient from "./axios";
 
 class Api {
   constructor() {
-    this.apiKey =
-      process.env.REACT_APP_API_KEY || "c8c9bdbcca97ace26ba47056026a98f5";
+    this.apiKey = process.env.REACT_APP_API_KEY;
   }
 
   get(path, params) {

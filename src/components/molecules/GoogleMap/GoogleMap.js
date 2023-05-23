@@ -1,38 +1,38 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useMemo, useState } from "react";
+import React, { useContext } from "react";
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 import { AppContext } from "../../../context/app";
 import "./GoogleMaps.css";
 import Search from "../autoCompleteSearch/Search";
 
 const Map = () => {
-  const { dailyWeather, selected, setSelected } = useContext(AppContext);
+  const { location, setLocation } = useContext(AppContext);
 
-  useMemo(
-    () => setSelected({ lat: dailyWeather?.lat, lng: dailyWeather?.lon }),
-    [dailyWeather]
-  );
+  console.log(location);
 
   return (
     <>
-      <Search setSelected={setSelected} />
+      <Search setSelected={setLocation} />
       <GoogleMap
-        zoom={10}
-        center={selected}
+        zoom={15}
+        center={location}
+        mapTypeId="hybrid"
         mapContainerStyle={{
           width: "320px",
           height: "100%",
         }}
       >
-        {selected && <MarkerF position={selected} />}
+        {location && <MarkerF position={location} />}
       </GoogleMap>
     </>
   );
 };
 
+console.log(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
+
 const GoogleMapWrapper = () => {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyC4DXam-i6LPD0F8Oku1bjup-tQeWoAxpY",
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries: ["places"],
   });
   if (!isLoaded) return <p>Loading...</p>;

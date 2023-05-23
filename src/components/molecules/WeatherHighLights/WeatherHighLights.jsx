@@ -1,49 +1,44 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   HighLightsWrapper,
   StyledWeatherHigLightCard,
 } from "./weatherHighLights.styles";
+import { AppContext } from "../../../context/app";
+import LinearProgressBar from "../ProgessBar/ProgessBar";
 
-const HighLightCard = ({ title, data }) => {
+const HighLightCard = ({ title, data, isHumidity, value }) => {
   return (
     <StyledWeatherHigLightCard>
       <p className="title">{title}</p>
-      <p className="data">{data}</p>
+      <p className="data">{data || ""}</p>
+      {isHumidity && <LinearProgressBar progess={value} />}
     </StyledWeatherHigLightCard>
   );
 };
 
-const highLights = [
-  {
-    title: "Wind Status",
-    value: "7mph",
-    reder: () => <p>Holla</p>,
-  },
-  {
-    title: "Humidity",
-    value: "84%",
-    reder: () => "",
-  },
-
-  {
-    title: "visibility",
-    value: "6,4 miles",
-    reder: () => "",
-  },
-  {
-    title: "Air Pressure",
-    value: "998 mb",
-    reder: () => "",
-  },
-];
-
 const WeatherHighLights = () => {
+  const { dailyWeather } = useContext(AppContext);
   return (
     <HighLightsWrapper>
       <h2>Today's Highlights</h2>
-      {highLights.map(({ title, value }, i) => (
-        <HighLightCard key={i} title={title} data={value} />
-      ))}
+      <HighLightCard
+        title="Wind Status"
+        data={`${dailyWeather?.windSpeed}mph`}
+      />
+      <HighLightCard
+        title="Humidity"
+        data={`${dailyWeather?.humidity}%`}
+        value={dailyWeather?.humidity}
+        isHumidity={true}
+      />
+      <HighLightCard
+        title="Visibility"
+        data={`${dailyWeather?.visibility}miles`}
+      />
+      <HighLightCard
+        title="Air Pressure"
+        data={`${dailyWeather?.pressure}mb`}
+      />
     </HighLightsWrapper>
   );
 };
