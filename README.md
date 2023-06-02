@@ -9,7 +9,7 @@ It's a sample weather app built using [ReactJs](https://reactjs.org/) with weath
 
 Start the project 
 
-![preview](public/images/preview.png)
+![preview](public/preview.JPG)
 
 ## Project Setup
 
