@@ -1,22 +1,20 @@
 import { ResponsiveLine } from "@nivo/line";
 import { useContext } from "react";
-import { AppContext } from "../../../context/app";
-import formatGrapData from "./formatGrapData";
+import { AppContext } from "../../context/app";
 
-const TemperatureGraph = () => {
-  const { foreCast } = useContext(AppContext);
-  const data = formatGrapData(foreCast);
+const Graph = () => {
+  const { mapData } = useContext(AppContext);
 
   return (
     <ResponsiveLine
-      data={data}
-      colors={{ scheme: "nivo" }} // added
+      data={mapData}
+      colors={{ scheme: "nivo" }}
       margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
       xScale={{ type: "point" }}
       yScale={{
         type: "linear",
         min: "auto",
-        max: "auto",
+        max: 10000,
         stacked: true,
         reverse: false,
       }}
@@ -29,7 +27,7 @@ const TemperatureGraph = () => {
         tickSize: 0,
         tickPadding: 5,
         tickRotation: 0,
-        legend: "transportation", // added
+        legend: "Atmospheric Conditions", // added
         legendOffset: 36,
         legendPosition: "middle",
       }}
@@ -37,10 +35,11 @@ const TemperatureGraph = () => {
         orient: "left",
         tickValues: 5, // added
         tickSize: 3,
+        tickColor: "red",
         tickPadding: 5,
         tickRotation: 0,
-        legend: "count", // added
-        legendOffset: -40,
+        legend: "Estimated Value", // added
+        legendOffset: -50,
         legendPosition: "middle",
       }}
       enableGridX={false}
@@ -81,4 +80,4 @@ const TemperatureGraph = () => {
   );
 };
 
-export default TemperatureGraph;
+export default Graph;

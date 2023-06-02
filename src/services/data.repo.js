@@ -46,25 +46,6 @@ function formatForcast(forecast) {
   return [forecast, WeatherAtInstant];
 }
 
-function formatMapData([forcast]) {
-  const map = [];
-  Object.keys(forcast).forEach((key) => {
-    const { windSpeed, humidity, airPressure, visibility } = forcast[key];
-    const data = [
-      { x: "windSpeed", y: windSpeed },
-      { x: "humidity", y: humidity },
-      { x: "airPressure", y: airPressure },
-      { x: "visibility", y: visibility },
-    ];
-    map.push({
-      id: key,
-      color: "",
-      data: data,
-    });
-  });
-  console.log(map);
-}
-
 function groupByDay(forcast) {
   const result = {};
   forcast.forEach((first) => {
@@ -75,6 +56,28 @@ function groupByDay(forcast) {
     }
   });
   return result;
+}
+function formatMapData(value) {
+  const map = [];
+  Object.keys(value[0]).forEach((key, i) => {
+    let data = [];
+    value[0][key].forEach(
+      ({ temp, windSpeed, humidity, airPressure, visibility }) => {
+        data.push(
+          { x: "temp", y: temp },
+          { x: "windSpeed", y: windSpeed },
+          { x: "humidity", y: humidity },
+          { x: "airPressure", y: airPressure },
+          { x: "visibility", y: visibility }
+        );
+      }
+    );
+    map.push({
+      id: key,
+      data: data,
+    });
+  });
+  return [map, value[1]];
 }
 
 function getCurrentWeather(prams) {

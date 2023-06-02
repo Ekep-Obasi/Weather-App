@@ -7,9 +7,6 @@ import Search from "../autoCompleteSearch/Search";
 
 const Map = () => {
   const { location, setLocation } = useContext(AppContext);
-
-  console.log(location);
-
   return (
     <>
       <Search setSelected={setLocation} />
@@ -27,8 +24,6 @@ const Map = () => {
     </>
   );
 };
-
-console.log(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
 
 const GoogleMapWrapper = () => {
   const { isLoaded } = useLoadScript({

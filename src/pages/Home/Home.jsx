@@ -3,6 +3,7 @@ import { HomeContent, HomeWrapper } from "./Home.styles";
 import Sidebar from "../../components/organisms/SideBar/Sidebar";
 import WeatherCards from "../../components/molecules/WeatherCard/WeatherCard";
 import WeatherHighLights from "../../components/molecules/WeatherHighLights/WeatherHighLights";
+import Graph from "../../components/molecules/LineGraph";
 
 const Home = () => {
   return (
@@ -11,7 +12,9 @@ const Home = () => {
       <HomeContent>
         <div className="container1">
           <WeatherCards />
-          <div className="graph"></div>
+          <div className="graph">
+            <Graph />
+          </div>
         </div>
         <div className="container2">
           <WeatherHighLights />

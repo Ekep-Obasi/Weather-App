@@ -18,7 +18,7 @@ export const localTime = () => {
     hour: "numeric",
     minute: "numeric",
     second: "numeric",
-    hour12: false,
+    hour12: true,
   };
   return new Intl.DateTimeFormat("en-US", options).format(Date.now());
 };
