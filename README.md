@@ -5,9 +5,9 @@ A sample weather app built with React Js
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 It's a sample weather app built using [ReactJs](https://reactjs.org/) with weather data gotten from [Open Weather Data App](https://openweathermap.org/)
 
-## `npm run start`
+Run the following Command to 
 
-Start the project 
+## `npm run start`
 
 ![preview](public/preview.JPG)
 
