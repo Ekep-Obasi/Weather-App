@@ -9,6 +9,8 @@ It's a sample weather app built using [ReactJs](https://reactjs.org/) with weath
 
 ## `npm run start`
 
+## Project Preview
+
 ![preview](public/preview.JPG)
 
 ## Project Setup
