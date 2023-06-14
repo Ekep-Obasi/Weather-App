@@ -4,7 +4,7 @@ import { AppContext } from "../../context/app";
 
 const Graph = () => {
   const { mapData } = useContext(AppContext);
-
+  
   return (
     <ResponsiveLine
       data={mapData}
@@ -14,7 +14,7 @@ const Graph = () => {
       yScale={{
         type: "linear",
         min: "auto",
-        max: 10000,
+        max: 300,
         stacked: true,
         reverse: false,
       }}
@@ -27,7 +27,7 @@ const Graph = () => {
         tickSize: 0,
         tickPadding: 5,
         tickRotation: 0,
-        legend: "Atmospheric Conditions", // added
+        legend: "Day of The Week", // added
         legendOffset: 36,
         legendPosition: "middle",
       }}
@@ -38,7 +38,7 @@ const Graph = () => {
         tickColor: "red",
         tickPadding: 5,
         tickRotation: 0,
-        legend: "Estimated Value", // added
+        legend: "Estimated Temperature Value", // added
         legendOffset: -50,
         legendPosition: "middle",
       }}
@@ -52,7 +52,7 @@ const Graph = () => {
       useMesh={true}
       legends={[
         {
-          anchor: "bottom-right",
+          anchor: "top-right",
           direction: "column",
           justify: false,
           translateX: 100,
@@ -62,8 +62,8 @@ const Graph = () => {
           itemWidth: 80,
           itemHeight: 20,
           itemOpacity: 0.75,
-          symbolSize: 12,
-          symbolShape: "circle",
+          symbolSize: 17.5,
+          symbolShape: "square",
           symbolBorderColor: "rgba(0, 0, 0, .5)",
           effects: [
             {

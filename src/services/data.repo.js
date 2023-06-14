@@ -9,7 +9,8 @@ function getForeCast(params) {
     .then((res) => res.list.map(formatWeatherForeCastList))
     .then((res) => groupByDay(res))
     .then((res) => formatForcast(res))
-    .then((res) => formatMapData(res));
+    .then((res) => formatMapData(res))
+    .catch(() => console.log(""));
 }
 
 function formatWeatherForeCastList({
@@ -57,21 +58,14 @@ function groupByDay(forcast) {
   });
   return result;
 }
+
 function formatMapData(value) {
   const map = [];
-  Object.keys(value[0]).forEach((key, i) => {
+  Object.keys(value[0]).forEach((key) => {
     let data = [];
-    value[0][key].forEach(
-      ({ temp, windSpeed, humidity, airPressure, visibility }) => {
-        data.push(
-          { x: "temp", y: temp },
-          { x: "windSpeed", y: windSpeed },
-          { x: "humidity", y: humidity },
-          { x: "airPressure", y: airPressure },
-          { x: "visibility", y: visibility }
-        );
-      }
-    );
+    value[0][key].forEach(({ temp, time }) => {
+      data.push({ x: time, y: temp });
+    });
     map.push({
       id: key,
       data: data,
@@ -84,7 +78,8 @@ function getCurrentWeather(prams) {
   return api
     .get(`weather`, prams)
     .then((res) => res.data)
-    .then(formatWeather);
+    .then(formatWeather)
+    .catch(() => console.log(""));
 }
 
 function formatWeather({ weather, main, visibility, name, wind, coord }) {
