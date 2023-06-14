@@ -8,18 +8,25 @@ const useFetch = () => {
   const [location, setLocation] = useState({ lat: "", lon: "" });
   const [foreCast, setForeCast] = useState([]);
   const [mapData, setMapData] = useState([]);
+  const [loading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     getLocation().then((res) => setLocation(res));
 
     getCurrentWeather({ lat: location?.lat, lon: location?.lng }).then((res) =>
       setDailyWeather(res)
     );
-    getForeCast({ lat: location?.lat, lon: location?.lng }).then((res) => {
-      setMapData(res[0]);
-      setForeCast(res[1]);
-    });
-  }, [location.lat, location.lon, dailyWeather.name]);
+
+    getForeCast({ lat: location?.lat, lon: location?.lng })
+      .then((res) => {
+        if (res) {
+          setMapData(res[0]);
+          setForeCast(res[1]);
+        }
+      })
+      .finally(() => setIsLoading(false));
+  }, [location?.lat, location?.lon, dailyWeather?.name]);
 
   return {
     dailyWeather,
@@ -28,6 +35,7 @@ const useFetch = () => {
     foreCast,
     setForeCast,
     mapData,
+    loading,
   };
 };
 

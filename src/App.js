@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { AppProvider } from "./context/app";
-import Home from "./pages/Home/Home";
+import Home from "./pages/LoadingPage/Home/Home";
 import Theme from "./theme";
 import useFetch from "./hooks/useFetch";
 
@@ -12,6 +12,7 @@ function App() {
     foreCast,
     setForeCast,
     mapData,
+    loading,
   } = useFetch();
 
   return (
@@ -23,6 +24,7 @@ function App() {
         foreCast,
         setForeCast,
         mapData,
+        loading,
       }}
     >
       <Theme>
