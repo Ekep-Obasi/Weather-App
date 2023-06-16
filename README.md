@@ -1,6 +1,6 @@
 # Weather-App
 
-A sample weather app built with React Js
+A sample weather app built with React Js with state management done with redux
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 It's a sample weather app built using [ReactJs](https://reactjs.org/) with weather data gotten from [Open Weather Data App](https://openweathermap.org/)
