@@ -6,10 +6,10 @@ import "./GoogleMaps.css";
 import Search from "../autoCompleteSearch/Search";
 
 const Map = () => {
-  const { location, setLocation } = useContext(AppContext);
+  const { location } = useContext(AppContext);
   return (
     <>
-      <Search setSelected={setLocation} />
+      <Search />
       <GoogleMap
         zoom={15}
         center={location}

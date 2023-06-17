@@ -11,8 +11,11 @@ import usePlacesAutocomplete, {
   getLatLng,
 } from "use-places-autocomplete";
 import "@reach/combobox/styles.css";
+import { useContext } from "react";
+import { AppContext } from "../../../context/app";
 
-const Search = ({ setSelected, button }) => {
+const Search = ({ button }) => {
+  const { setLocation } = useContext(AppContext);
   const {
     value,
     setValue,
@@ -26,7 +29,7 @@ const Search = ({ setSelected, button }) => {
 
     const result = await getGeocode({ address });
     const { lat, lng } = await getLatLng(result[0]);
-    setSelected({ lat, lng });
+    setLocation({ lat, lng });
   };
 
   return (
