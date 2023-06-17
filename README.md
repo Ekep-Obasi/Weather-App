@@ -11,7 +11,7 @@ It's a sample weather app built using [ReactJs](https://reactjs.org/) with weath
 
 ## Project Preview
 
-![preview](public/preview.JPG)
+![preview](public/preview_update.JPG)
 
 ## Project Setup
 
