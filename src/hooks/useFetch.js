@@ -11,12 +11,14 @@ const useFetch = () => {
   const [loading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
     getLocation().then((res) => setLocation(res));
-
     getCurrentWeather({ lat: location?.lat, lon: location?.lng }).then((res) =>
       setDailyWeather(res)
     );
+  }, []);
+
+  useEffect(() => {
+    setIsLoading(true);
 
     getForeCast({ lat: location?.lat, lon: location?.lng })
       .then((res) => {
