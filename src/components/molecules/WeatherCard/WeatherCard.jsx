@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { CardWrapper, StyledWeatherCard } from "./WeatherCard.styles";
 import WeatherIcon from "../../atoms/WeatherIcon";
-import image from "../../../assets/images/Thunderstorm.png";
 import { AppContext } from "../../../context/app";
 import convertTemperature from "../../../utlils/convertTemp";
 
@@ -9,7 +8,7 @@ const WeatherCard = ({ day, temp, icon, humidity }) => {
   return (
     <StyledWeatherCard>
       <div className="day">{day || ""}</div>
-      <WeatherIcon image={image} />
+      <WeatherIcon image={icon} />
       <div className="temperature">
         <span>{convertTemperature("fahrenheit", temp) || ""}&deg;</span>
         <span className="second">{humidity || ""}%</span>

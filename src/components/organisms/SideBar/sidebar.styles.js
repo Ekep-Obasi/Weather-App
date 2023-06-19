@@ -20,22 +20,8 @@ const SidebarWrapper = styled.div`
   }
 
   .image_wrapper {
-    position: relative;
-
-    .overlay {
-      top: 0;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-color: rgb(30, 33, 58, 0.95);
-    }
-
-    img.main__image {
-      z-index: 1;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    img {
+      height: 200px;
     }
   }
 
@@ -75,11 +61,21 @@ const SidebarWrapper = styled.div`
     line-height: 21px;
     letter-spacing: 0em;
     text-align: left;
+    margin: auto;
   }
 
   .location {
     font-size: 18px;
+    margin: auto;
     color: ${(props) => props.theme.colors.lightTxtSecondary};
+  }
+
+  .weather_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    height: 50%;
   }
 
   .header {

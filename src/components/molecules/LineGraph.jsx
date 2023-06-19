@@ -4,7 +4,7 @@ import { AppContext } from "../../context/app";
 
 const Graph = () => {
   const { mapData } = useContext(AppContext);
-  
+
   return (
     <ResponsiveLine
       data={mapData}
