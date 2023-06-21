@@ -10,8 +10,8 @@ const StyledWeatherCard = styled.div`
   align-items: center;
   color: orange;
   padding: 18px;
-  background-color: #1e213a;
-  color: #e7e7eb;
+  background-color: ${(props) => props.theme.colors.darkBgSecondary};
+  color: ${(props) => props.theme.colors.lightTxtPrimary};
   font-family: Raleway;
   font-size: 16px;
   font-weight: 500;

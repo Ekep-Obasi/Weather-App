@@ -7,9 +7,9 @@ const StyledWeatherHigLightCard = styled.div`
   justify-content: center;
   align-items: center;
   padding: 22px 0;
-  background-color: #1e213a;
+  background-color: ${(props) => props.theme.colors.darkBgSecondary};
   font-family: Raleway;
-  color: #e7e7eb;
+  color: ${(props) => props.theme.colors.lightTxtPrimary};
 
   .title {
     font-size: 16px;
@@ -36,7 +36,7 @@ const HighLightsWrapper = styled.div`
     font-family: Raleway;
     font-size: 24px;
     font-weight: 700;
-    color: #e7e7eb;
+    color: ${(props) => props.theme.colors.lightTxtPrimary};
   }
 `;
 
