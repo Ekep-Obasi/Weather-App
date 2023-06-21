@@ -16,7 +16,7 @@ const HomeWrapper = styled.div`
 `;
 
 const HomeContent = styled.div`
-  width: 85%;
+  width: 100%;
   height: 100vh;
   padding: 75px;
   display: flex;
@@ -39,9 +39,10 @@ const HomeContent = styled.div`
       flex: 2;
       width: 100%;
       height: 100%;
+      max-height: 440px;
       min-height: 320px;
       display: flex;
-      background-color: #1e213a;
+      background-color: ${(props) => props.theme.colors.darkBgSecondary};
     }
   }
 `;

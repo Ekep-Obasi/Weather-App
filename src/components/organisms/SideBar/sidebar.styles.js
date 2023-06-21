@@ -88,7 +88,7 @@ const SidebarWrapper = styled.div`
     button {
       cursor: pointer;
       font-size: 22px;
-      color: #e7e7eb;
+      color: ${(props) => props.theme.colors.lightTxtPrimary};
       width: 40px;
       height: 40px;
       border-radius: 50%;
@@ -106,11 +106,11 @@ const SidebarWrapper = styled.div`
       border-style: none;
       padding: 0 0.5rem;
       font-size: 16px;
-      color: #e7e7eb;
+      color: ${(props) => props.theme.colors.lightTxtPrimary};
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
       &::placeholder {
-        color: #e7e7eb;
+        color: ${(props) => props.theme.colors.lightTxtPrimary};
       }
 
       &:focus {
@@ -148,7 +148,7 @@ const StyledOpenDrawer = styled.div`
     button.close {
       font-size: 32px;
       background-color: transparent;
-      color: #e7e7eb;
+      color: ${(props) => props.theme.colors.lightTxtPrimary};
       border-style: none;
     }
   }
