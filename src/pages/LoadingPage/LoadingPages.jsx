@@ -1,6 +1,5 @@
 import React from "react";
 import { MutatingDots } from "react-loader-spinner";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { StyledLoadingPage } from "./LoadingPage.styles";
 import TypeEffect from "../../components/atoms/Loader/typeEffect";
 
@@ -24,13 +23,6 @@ const LoadingPage = () => {
   return (
     <StyledLoadingPage>
       <h1>
-        <span className="icon">
-          <FontAwesomeIcon
-            icon="fa-solid fa-sun"
-            beat
-            style={{ color: "#fdb813" }}
-          />
-        </span>
         <span className="weather">Weather</span> Forecast
       </h1>
       <Spinner />
