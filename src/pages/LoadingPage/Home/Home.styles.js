@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const HomeWrapper = styled.div`
   width: 100%;
+  box-sizing: border-box;
   min-height: 100vh;
   display: flex;
   justify-content: space-between;
