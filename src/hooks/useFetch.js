@@ -9,9 +9,16 @@ const useFetch = () => {
   const [foreCast, setForeCast] = useState([]);
   const [mapData, setMapData] = useState([]);
   const [loading, setIsLoading] = useState(false);
+  const [initialLoad, setInitialLoad] = useState(true);
+  let timeId;
 
   useEffect(() => {
-    getLocation().then((res) => setLocation(res));
+    getLocation()
+      .then((res) => setLocation(res))
+      .finally(() => {
+        timeId = setTimeout(() => setInitialLoad(false), 3750);
+      });
+    return () => clearTimeout(timeId);
   }, []);
 
   useEffect(() => {
@@ -33,6 +40,7 @@ const useFetch = () => {
   return {
     dailyWeather,
     location,
+    initialLoad,
     setLocation,
     foreCast,
     setForeCast,
