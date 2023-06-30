@@ -3,6 +3,7 @@ import { AppProvider } from "./context/app";
 import Home from "./pages/LoadingPage/Home/Home";
 import Theme from "./theme";
 import useFetch from "./hooks/useFetch";
+import LoadingPage from "./pages/LoadingPage/LoadingPages";
 
 function App() {
   const {
@@ -13,6 +14,7 @@ function App() {
     setForeCast,
     mapData,
     loading,
+    initialLoad,
   } = useFetch();
 
   return (
@@ -25,11 +27,10 @@ function App() {
         setForeCast,
         mapData,
         loading,
+        initialLoad,
       }}
     >
-      <Theme>
-        <Home />
-      </Theme>
+      <Theme>{initialLoad ? <LoadingPage /> : <Home />}</Theme>
     </AppProvider>
   );
 }
