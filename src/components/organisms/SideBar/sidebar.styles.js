@@ -11,7 +11,7 @@ const SidebarWrapper = styled.div`
   width: 25%;
   overflow: hidden;
   font-family: "Raleway";
-  padding: 40px;
+  padding: 40px 10px;
 
   @media screen and (max-width: 1285px) {
     width: 100%;
