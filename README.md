@@ -1,4 +1,4 @@
-# Weather App
+# Minimal Weather App
 
 A sample weather app built with React Js and state management done with [redux](https://redux.js.org/)
 
