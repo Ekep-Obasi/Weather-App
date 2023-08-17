@@ -1,6 +1,6 @@
 # Minimal Weather App
 
-A sample weather app built with React Js and state of the application is managed using the Context API
+A sample weather app built with React Js and  application  state is managed using the Context API
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 It's a sample weather app built using [ReactJs](https://reactjs.org/) with weather data gotten from [Open Weather Data App](https://openweathermap.org/). The app uses google maps to search and display the location for which the weather is searched 
